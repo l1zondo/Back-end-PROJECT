@@ -1,0 +1,29 @@
+[
+	{
+		"code": "PR01",
+		"title": "Mouse Inalambrico Logitech",
+		"description": "Negro con led roja",
+		"price": 200,
+		"thumbnail": "mouse.jpg",
+		"stock": 50,
+		"id": 2
+	},
+	{
+		"code": "PR02",
+		"title": "Mouse Inalambrico Logitech",
+		"description": "Negro con led roja",
+		"price": 200,
+		"thumbnail": "mouse.jpg",
+		"stock": 50,
+		"id": 2
+	},
+	{
+		"code": "PR03",
+		"title": "Teclado Inalambrico Kingston",
+		"description": "Blanco",
+		"price": 100,
+		"thumbnail": "teclado.jpg",
+		"stock": 25,
+		"id": 3
+	}
+]
