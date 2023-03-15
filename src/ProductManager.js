@@ -1,70 +1,72 @@
 import fs from "fs";
 import express from "express";
-
+import { Blob } from "buffer";
 export default class ProductManager {
     constructor() {
         this.products = [];
-        this.path = "./files/Productos.json";
+        this.pathfiles = "./files";
+        this.path = "./files/Products.json";
     }
+
     productServer = express();
     returnObject = async () => {
         const data = await fs.promises.readFile(this.path, 'utf-8');
         const result = JSON.parse(data);
         return result;
-        
+
     }
 
     getProducts = async () => {
         try {
+            if (!fs.existsSync(this.pathfiles)) {
+                fs.mkdirSync(this.pathfiles)
+            }
             if (fs.existsSync(this.path)) {
-                const data = await fs.promises.readFile(this.path, 'utf-8');
-                // valorArchivo= new Blob([data]).size;
-                // if(valorArchivo!=0){
 
-                // }
-                const result = JSON.parse(data);
-                return result;
+                const data = await fs.promises.readFile(this.path, 'utf-8');
+
+                const size = new Blob([data]).size;
+                if (size > 0) {
+                    const result = JSON.parse(data);
+                    return result;
+                } else {
+                    return [];
+                }
             } else {
                 return [];
             }
-
         } catch (error) {
-            console.error(`Error to read the file ${this.path} ${error}`);
-            return [];
+            console.log(error)
         }
 
     }
-    addProduct = async (code, title, description, price, thumbnail, stock) => {
+    addProduct = async (productObject) => {
 
         try {
 
-            let products = await this.getProducts();
+            productObject.stock > 0
+                ? productObject = { status: true, ...productObject }
+                : productObject = { status: false, ...productObject }
 
-            if (!code || !title || !description || !price || !thumbnail || !stock) {
-                console.log("All the fields must be completed")
-                return;
+
+
+            // if (productObject.thumbnail[1].hasOwnProperty("fieldname")) {
+            //     const imgPaths = productObject.thumbnail.map(prod => prod.path);
+            //     productObject.thumbnail = imgPaths;
+            // }
+
+            const products = await this.getProducts();
+            const productIndex = await products.findIndex((prod) => prod.code === productObject.code);
+
+            if (productIndex === -1) {
+                products.length === 0
+                    ? productObject = { id: 1, ...productObject }
+                    : productObject = { id: products[products.length - 1].id + 1, ...productObject }
+                products.push(productObject);
+                await fs.promises.writeFile(this.path, JSON.stringify(products, null, "\t"));
+                return productObject;
             }
 
-
-            let productRepeated = products.find((element) => element.code === code);
-            if (productRepeated) {
-                return `The field code ${code} is repeated so this product cannot be save in the list`;
-
-            }
-            const product = {
-                code: code,
-                title: title,
-                description: description,
-                price: price,
-                thumbnail: thumbnail,
-                stock: stock,
-                id: products.length + 1
-            }
-
-
-            products.push(product);
-            await fs.promises.writeFile(this.path, JSON.stringify(products, null, "\t"));
-            return products;
         } catch (error) {
             console.log(error);
         }
@@ -78,9 +80,9 @@ export default class ProductManager {
                 const result = await this.getProducts();
 
                 let indexValue = result.find((event) => event.id === id);
-               
-                    return indexValue;
-                
+
+                return indexValue;
+
             }
         } catch (error) {
             console.log(error);
@@ -90,66 +92,51 @@ export default class ProductManager {
 
     }
     deleteProducts = async (id) => {
-
-
-        const products = await this.getProducts()
-
-
-        let productFounded = products.find((product) => product.id === id)
-        if (productFounded) {
-            try {
+        try {
+            const products = await this.getProducts()
+            let productFounded = products.findIndex((product) => product.id === id)
+            if (productFounded !== -1) {
                 const valor = products.filter((event) => event.id != id);
-
-
-
                 await fs.promises.writeFile(this.path, JSON.stringify(valor, null, "\t"))
                 return "Product eliminated";
-
-            } catch (error) {
-                console.log(error);
+            } else {
+                return productFounded;
             }
-
-        } else {
-            return `The product to delete with the id: ${id} does not exist in the list`
+        } catch (error) {
+            console.log(error)
         }
 
-
-
     }
-    updateProduct = async (id, code, title, description, price, thumbnail, stock) => {
+    updateProduct = async (idUpdate, productUpdate) => {
         try {
             const products = await this.getProducts();
-
             if (products === "error") {
                 return "The file is empty";
             }
+            let productExists = products.findIndex((product) => product.id === idUpdate)
+            if (productExists !== -1) {
 
-
-            let productExists = products.find((product) => product.id === id)
-            if (productExists != undefined) {
-
-                const productoAmodificar = products.filter((product) => product.id === id);
+                const productoAmodificar = products.filter((product) => product.id === idUpdate);
 
                 const productoModificado = {
+                    id: idUpdate,
+                    title: productUpdate.title ?? productoAmodificar[0].title,
+                    description: productUpdate.description ?? productoAmodificar[0].description,
+                    code: productUpdate.code ?? productoAmodificar[0].code,
+                    status: productUpdate.status ?? productoAmodificar[0].status,
+                    price: productUpdate.price ?? productoAmodificar[0].price,
+                    category: productUpdate.category ?? productoAmodificar[0].category,
+                    thumbnail: productUpdate.thumbnail ?? productoAmodificar[0].thumbnail,
+                    stock: productUpdate.stock ?? productoAmodificar[0].stock
 
-                    code: code ?? productoAmodificar[0].code,
-                    title: title ?? productoAmodificar[0].title,
-                    description: description ?? productoAmodificar[0].description,
-                    price: price ?? productoAmodificar[0].price,
-                    thumbnail: thumbnail ?? productoAmodificar[0].thumbnail,
-                    stock: stock ?? productoAmodificar[0].stock,
-                    id: id
                 }
 
-                products[id - 1] = productoModificado;
+                products[idUpdate - 1] = productoModificado;
 
                 //console.log(this.products)
                 await fs.promises.writeFile(this.path, JSON.stringify(products, null, "\t"));
-                return "Product updated";
-
-
             } else {
-                return `The product to update with the id ${id} does not exist in the list`;
+                return productExists;
             }
         } catch (error) {
             console.log(error)
