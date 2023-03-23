@@ -1,93 +1,172 @@
 [
 	{
-		"code": "PR01",
-		"title": "Teclado Inalambrico Genius",
+		"id": 1,
+		"title": "hola",
 		"description": "Azul",
+		"code": "PR01",
 		"price": 100,
-		"thumbnail": "tecladoG.jpg",
-		"stock": 25,
-		"id": 1
+		"category": "Procesador",
+		"stock": 25
 	},
 	{
-		"code": "PR02",
-		"title": "Teclado Inalambrico Logitech",
+		"id": 2,
+		"title": "hola1",
 		"description": "Blanco",
+		"code": "PR02",
 		"price": 100,
-		"thumbnail": "tecladoL.jpg",
-		"stock": 25,
-		"id": 2
+		"category": "Procesador",
+		"stock": 25
 	},
 	{
-		"code": "PR03",
-		"title": "Teclado Inalambrico Kingston",
+		"id": 3,
+		"title": "hola2",
 		"description": "verde",
+		"code": "PR03",
 		"price": 100,
-		"thumbnail": "tecladoK.jpg",
-		"stock": 25,
-		"id": 3
+		"category": "Procesador",
+		"stock": 25
 	},
 	{
-		"code": "PR04",
+		"id": 4,
 		"title": "Intel Core I5 10ma 14 8gb 480gb Enova Nuevo | +100 vendidos Notebook Intel Core I5 10ma 14 8gb 480gb Enova",
 		"description": "Producto: Notebook.Dimensiones: 323*219*19.7mm.Peso: 1419g.Material: Full Plastic Pantalla: 14 16:9.Resolución: 1920*1080 FHD,Batería: Batería de polímero de iones de litio.Capacidad bateria: 11.55V/3900mAh",
+		"code": "PR04",
 		"price": 100,
-		"thumbnail": "tecladoK.jpg",
-		"stock": 25,
-		"id": 4
+		"category": "Procesador",
+		"stock": 25
 	},
 	{
-		"code": "PR05",
-		"title": "Hp 15 Core I7 512 Ssd + 16gb / Notebook W11 Fhd Touch Outlet",
-		"description": "PRESTACIONES: Procesador: Intel Core i7-1195G7 Quadcore (up to 5.0 GHz with Intel Turbo Boost Technology, 12 MB L3 cache),Memoria: 16GB,Placa de Video:Intel Iris Xe Graphics,Disco: 512GB SSD, Pantalla: 15.6 FHD (1920 x 1080) TOUCH, Teclado: Retroiluminado Sistema Operativo: Windows 11 Peso 1.7 kg",
-		"price": 316619,
-		"thumbnail": "tecladoK.jpg",
-		"stock": 25,
-		"id": 5
+		"id": 5,
+		"title": "intento1",
+		"description": "Verde",
+		"code": "PR444",
+		"price": 92,
+		"category": "abvdad",
+		"stock": 60
 	},
 	{
-		"code": "PR06",
-		"title": "Refrigeracion Liquida Thermaltake De Cpu Rgb 240 Mm",
-		"description": "Thermaltake Floe Dual Ring RGB 240 TT Premium Edition PWM TR4 AM4 LGA1200 Ready AIO Liquid Cooling System 240mm Radiador de alta eficiencia CPU Cooler CL-W157-PL12SW-A Floe 240mm Black",
-		"price": 96963,
-		"thumbnail": "refrigeracionL.jpg",
-		"stock": 25,
-		"id": 6
+		"id": 6,
+		"title": "intento2",
+		"description": "Rojo",
+		"code": "PR4445",
+		"price": 9232,
+		"category": "ab15245",
+		"stock": 600
 	},
 	{
+		"id": 7,
 		"code": "PR07",
 		"title": "Tornillos Kit Armador Pc Cpu Mother Dvd Hdd º40",
 		"description": "LSDCOMPUTACION 100% GARANTIA local al publico hace mas de 20 año. PRODUCTO:Kit 21 tornillos Pc cpu mother dvd hdd ssd M3 3mm 100% original nuevas con garantia ",
 		"price": 398,
-		"thumbnail": "TornillosKit.jpg",
-		"stock": 25,
-		"id": 7
+		"category": "Procesador",
+		"stock": 25
 	},
 	{
+		"id": 8,
 		"code": "PR08",
 		"title": "Carro Soporte Para Cpu Computadora Ruedas Melamina Oficina",
 		"description": "CARRO SOPORTE PARA CPU DE MELAMINA CON RUEDAS. Modelo ideal para Optimizar Espacio en Tu Oficina, Escritorio. Al Tener Ruedas Facilita su Transportación, Eleva su Equipo para Evitar el Polvo y Optimizar el Mantenimiento del Mismo.",
 		"price": 3579,
-		"thumbnail": "CarroS.jpg",
-		"stock": 25,
-		"id": 8
+		"category": "Procesador",
+		"stock": 25
 	},
 	{
+		"id": 9,
 		"code": "PR09",
 		"title": "Cooler Cpu Id-cooling Se-903-sd Intel 1200 115x Amd Ryzen",
 		"description": "PCMODD ID-COOLING SE-903-SD",
 		"price": 5850,
-		"thumbnail": "CoolerAmd.jpg",
-		"stock": 25,
-		"id": 9
+		"category": "Procesador",
+		"stock": 25
 	},
 	{
+		"id": 10,
+		"title": "ejemplo1",
+		"description": " Cooler Cpu Id-cooling Se-903-sd Intel 1200 115x Amd Ryzen",
 		"code": "PR10",
-		"title": "Procesador gamer AMD Ryzen 5 5600G 100-100000252BOX de 6 núcleos y 4.4GHz de frecuencia con gráfica integrada",
-		"description": " Es ideal para jugadores y creadores de contenido que requieran un instrumento de gran ejecución.",
 		"price": 85571,
-		"thumbnail": "ryzen5.jpg",
-		"stock": 50,
-		"id": 10
+		"category": "Procesador",
+		"stock": 50
+	},
+	{
+		"id": 11,
+		"title": "a",
+		"description": "a",
+		"code": "PR11",
+		"status": true,
+		"price": 85571,
+		"category": "Procesador",
+		"stock": 50
+	},
+	{
+		"id": 12,
+		"title": "b",
+		"description": " b ",
+		"code": "PR12",
+		"status": true,
+		"price": 85571,
+		"category": "Procesador",
+		"stock": 50
+	},
+	{
+		"id": 13,
+		"title": "t",
+		"description": " t ",
+		"code": "PR6",
+		"status": true,
+		"price": 85571,
+		"category": "Procesador",
+		"stock": 50
+	},
+	{
+		"id": 14,
+		"title": "z",
+		"description": " z",
+		"code": "PR15",
+		"status": true,
+		"price": 85571,
+		"category": "Procesador",
+		"stock": 50
+	},
+	{
+		"id": 15,
+		"title": "p",
+		"description": " p",
+		"code": "PR15",
+		"status": true,
+		"price": 85571,
+		"category": "Procesador",
+		"stock": 50
+	},
+	{
+		"id": 16,
+		"title": "h",
+		"description": " h",
+		"code": "PR50",
+		"status": true,
+		"price": 85571,
+		"category": "Procesador",
+		"stock": 50
+	},
+	{
+		"id": 17,
+		"title": "f",
+		"description": "f ",
+		"code": "PR51",
+		"status": true,
+		"price": 85571,
+		"category": "Procesador",
+		"stock": 50
+	},
+	{
+		"id": 18,
+		"title": "c",
+		"description": "c",
+		"code": "PR53",
+		"status": true,
+		"price": 85571,
+		"category": "Procesador",
+		"stock": 50
 	}
-
 ]

@@ -1,172 +1,51 @@
 [
 	{
-		"id": 80,
-		"title": "hola",
-		"description": "Azul",
-		"code": "PR01",
-		"price": 100,
-		"category": "Procesador",
-		"stock": 25
+		"id": 1,
+		"products": []
 	},
 	{
 		"id": 2,
-		"title": "hola",
-		"description": "Blanco",
-		"code": "PR02",
-		"price": 100,
-		"category": "Procesador",
-		"stock": 25
+		"products": [
+			{
+				"id": 1,
+				"quantity": 1
+			},
+			{
+				"id": 2,
+				"quantity": 4
+			},
+			{
+				"id": 5,
+				"quantity": 3
+			},
+			{
+				"id": 6,
+				"quantity": 2
+			},
+			{
+				"id": 7,
+				"quantity": 1
+			},
+			{
+				"id": 11,
+				"quantity": 23
+			}
+		]
 	},
 	{
 		"id": 3,
-		"title": "hola",
-		"description": "verde",
-		"code": "PR03",
-		"price": 100,
-		"category": "Procesador",
-		"stock": 25
+		"products": []
 	},
 	{
 		"id": 4,
-		"title": "Intel Core I5 10ma 14 8gb 480gb Enova Nuevo | +100 vendidos Notebook Intel Core I5 10ma 14 8gb 480gb Enova",
-		"description": "Producto: Notebook.Dimensiones: 323*219*19.7mm.Peso: 1419g.Material: Full Plastic Pantalla: 14 16:9.Resolución: 1920*1080 FHD,Batería: Batería de polímero de iones de litio.Capacidad bateria: 11.55V/3900mAh",
-		"code": "PR04",
-		"price": 100,
-		"category": "Procesador",
-		"stock": 25
+		"products": []
 	},
 	{
 		"id": 5,
-		"title": "hola",
-		"description": "PRESTACIONES: Procesador: Intel Core i7-1195G7 Quadcore (up to 5.0 GHz with Intel Turbo Boost Technology, 12 MB L3 cache),Memoria: 16GB,Placa de Video:Intel Iris Xe Graphics,Disco: 512GB SSD, Pantalla: 15.6 FHD (1920 x 1080) TOUCH, Teclado: Retroiluminado Sistema Operativo: Windows 11 Peso 1.7 kg",
-		"code": "PR05",
-		"price": 316619,
-		"category": "Procesador",
-		"stock": 25
+		"products": []
 	},
 	{
-		"code": "PR06",
-		"title": "Refrigeracion Liquida Thermaltake De Cpu Rgb 240 Mm",
-		"description": "Thermaltake Floe Dual Ring RGB 240 TT Premium Edition PWM TR4 AM4 LGA1200 Ready AIO Liquid Cooling System 240mm Radiador de alta eficiencia CPU Cooler CL-W157-PL12SW-A Floe 240mm Black",
-		"price": 96963,
-		"category": "Procesador",
-		"stock": 25,
-		"id": 6
-	},
-	{
-		"code": "PR07",
-		"title": "Tornillos Kit Armador Pc Cpu Mother Dvd Hdd º40",
-		"description": "LSDCOMPUTACION 100% GARANTIA local al publico hace mas de 20 año. PRODUCTO:Kit 21 tornillos Pc cpu mother dvd hdd ssd M3 3mm 100% original nuevas con garantia ",
-		"price": 398,
-		"category": "Procesador",
-		"stock": 25,
-		"id": 7
-	},
-	{
-		"code": "PR08",
-		"title": "Carro Soporte Para Cpu Computadora Ruedas Melamina Oficina",
-		"description": "CARRO SOPORTE PARA CPU DE MELAMINA CON RUEDAS. Modelo ideal para Optimizar Espacio en Tu Oficina, Escritorio. Al Tener Ruedas Facilita su Transportación, Eleva su Equipo para Evitar el Polvo y Optimizar el Mantenimiento del Mismo.",
-		"price": 3579,
-		"category": "Procesador",
-		"stock": 25,
-		"id": 8
-	},
-	{
-		"code": "PR09",
-		"title": "Cooler Cpu Id-cooling Se-903-sd Intel 1200 115x Amd Ryzen",
-		"description": "PCMODD ID-COOLING SE-903-SD",
-		"price": 5850,
-		"category": "Procesador",
-		"stock": 25,
-		"id": 9
-	},
-	{
-		"code": "PR10",
-		"title": "Procesador gamer AMD Ryzen 5 5600G 100-100000252BOX de 6 núcleos y 4.4GHz de frecuencia con gráfica integrada",
-		"description": " Es ideal para jugadores y creadores de contenido que requieran un instrumento de gran ejecución.",
-		"price": 85571,
-		"category": "Procesador",
-		"stock": 50,
-		"id": 10
-	},
-	{
-		"id": 11,
-		"title": "ejemplo",
-		"description": " Es ideal para jugadores y creadores de contenido que requieran un instrumento de gran ejecución ",
-		"code": "PR11",
-		"status": true,
-		"price": 85571,
-		"category": "Procesador",
-		"stock": 50
-	},
-	{
-		"id": 12,
-		"title": "ejemplo",
-		"description": " Es ideal para jugadores y creadores de contenido que requieran un instrumento de gran ejecución ",
-		"code": "PR12",
-		"status": true,
-		"price": 85571,
-		"category": "Procesador",
-		"stock": 50
-	},
-	{
-		"id": 13,
-		"title": "ejemplo",
-		"description": " Es ideal para jugadores y creadores de contenido que requieran un instrumento de gran ejecución ",
-		"code": "PR6",
-		"status": true,
-		"price": 85571,
-		"category": "Procesador",
-		"stock": 50
-	},
-	{
-		"id": 14,
-		"title": "ejemplo",
-		"description": " Es ideal para jugadores y creadores de contenido que requieran un instrumento de gran ejecución ",
-		"code": "PR15",
-		"status": true,
-		"price": 85571,
-		"category": "Procesador",
-		"stock": 50
-	},
-	{
-		"id": 16,
-		"title": "ejemplo",
-		"description": " Es ideal para jugadores y creadores de contenido que requieran un instrumento de gran ejecución ",
-		"code": "PR50",
-		"status": true,
-		"price": 85571,
-		"category": "Procesador",
-		"stock": 50
-	},
-	{
-		"id": 17,
-		"title": "ejemplo",
-		"description": " Es ideal para jugadores y creadores de contenido que requieran un instrumento de gran ejecución ",
-		"code": "PR51",
-		"status": true,
-		"price": 85571,
-		"category": "Procesador",
-		"stock": 50
-	},
-	{
-		"id": 17,
-		"title": "ejemplo",
-		"description": " Es ideal para jugadores y creadores de contenido que requieran un instrumento de gran ejecución ",
-		"code": "PR52",
-		"status": true,
-		"price": 85571,
-		"category": "Procesador",
-		"stock": 50
-	},
-	{
-		"id": 18,
-		"title": "ejemplo",
-		"description": " Es ideal para jugadores y creadores de contenido que requieran un instrumento de gran ejecución ",
-		"code": "PR53",
-		"status": true,
-		"price": 85571,
-		"category": "Procesador",
-		"stock": 50
+		"id": 6,
+		"products": []
 	}
 ]
