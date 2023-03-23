@@ -1,6 +1,6 @@
 import ProductManager from '../ProductManager.js';
 import { Router } from "express";
-
+import { uploader } from '../utils.js';
 const router = Router();
 
 // router.get("/", (req, res) => {
@@ -49,24 +49,16 @@ router.get("/:pid", async (req, res) => {
     try {
         let id = req.params.pid
 
-        if (isNaN(id) || id < 1) {
-            return res.status(400).send({
-                status: "error",
-                message: { error: `This product has not a valid ID` },
-            });
-        }
-
 
         const consultaId = await manager.getProductById(Number.parseInt(id));
-        if (!consultaId || consultaId == 0) {
-
-            return res.status(400).send({ status: "error", message: "This product  with this ID does not exist in the list" });
-        } else {
-            res.status(200).send({
-                status: "success",
-                message: { product: consultaId },
-            });
+        if (typeof (consultaId) === "string") {
+            return res.status(400).send({ status: "error", message: consultaId });
         }
+        return res.status(200).send({
+            status: "success",
+            message: { product: consultaId },
+        });
+
     } catch (error) {
         console.log(error);
     }
@@ -113,85 +105,65 @@ router.get("/:pid", async (req, res) => {
 //         console.log(error)
 //     }
 // })
-router.post("/", async (req, res) => {
-    let newProduct = req.body;
-    console.log(newProduct);
-    if (!newProduct.title || !newProduct.description || !newProduct.code || !newProduct.price || !newProduct.stock || !newProduct.category ) {
-      return res.status(400).send({
-        status: "error",
-        message: { error: "Todos los campos son obligatorios" },
-      });
+router.post("/", uploader.array("thumbnails"), async (req, res) => {
+    let product = req.body;
+
+    let filesToadd = req.files
+    console.log(product)
+
+
+
+    if (!filesToadd) {
+        return res.status(400).send({
+            status: "error",
+            message: { error: `No se pudieron guardar las miniaturas` },
+        });
     }
-  
-    if (newProduct.id || newProduct.id == 0) {
-      return res.status(400).send({
-        status: "error",
-        message: { error: "Producto sin ID Asignado" },
-      });
+    product.thumbnails = [];
+    if (filesToadd) {
+        filesToadd.forEach(files => {
+            const imgUrladd = `http://localhost:8080/images/${files.filename}`;
+            product.thumbnails.push(imgUrladd)
+        });
     }
-  
-    // if (req.files) newProduct.thumbnails = req.files;
-  
-    // if (!req.files && !newProduct.thumbnails) {
-    //   return res.status(400).send({
-    //     status: "error",
-    //     message: { error: `No se pudieron guardar las miniaturas` },
-    //   });
-    // }
-  
-    const products = await manager.getProducts()
-    const productIndex = await products.findIndex((prod) => prod.code === newProduct.code);
-  
-    if (productIndex !== -1) {
-      return res.status(400).send({
-        status: "error",
-        message: { error: `This product has exist in the list` },
-      });
+    let result = await manager.addProduct(product);
+
+    if (typeof (result) === "string") {
+        return res.status(400).send({
+            status: "error",
+            message: { error: result },
+        });
     }
-  
-    newProduct = await manager.addProduct(newProduct);
-  
-    return res.status(201).send({
-      status: "success",
-      message: {
-        success: `Product successfully added`
-      
-      },
+
+
+    res.status(201).send({
+        status: "success",
+        message: {
+            success: `Product successfully added`
+
+        },
     });
-  });
-  
-router.put("/:pid", async (req, res) => {
+});
+
+router.put("/:pid", uploader.array("thumbnails"), async (req, res) => {
     try {
         const product = req.body;
         const id = req.params.pid;
-
-
-        if (!product) {
-            return res.status(400).send({
-                status: "error",
-                message: { error: "The fields does not have any value" },
+        const filesToUpdate=req.files
+        
+        product.thumbnails = [];
+        if (filesToUpdate) {
+            filesToUpdate.forEach(files => {
+                const imgUrlUpdate = `http://localhost:8080/images/${files.filename}`;
+                product.thumbnails.push(imgUrlUpdate)
             });
         }
-        if (isNaN(id) || id <= 0) {
-            return res.status(400).send({
-                status: "error",
-                message: { error: `${updatePos} Id with a invalid position` },
-            });
-        }
-        if (product.id) {
-            return res.status(400).send({
-                status: "error",
-                message: { error: "The ID of this product can not change" },
-            });
-        }
-        console.log(id);
-        console.log(product)
         let result = await manager.updateProduct(Number.parseInt(id), product);
 
-        if (result === -1) {
+        if (typeof (result) === "string") {
             return res.status(404).send({
                 status: "error",
-                message: { error: `The list has not any products with this Id` },
+                message: { error: result },
             });
         }
         return res.status(200).send({
@@ -205,27 +177,16 @@ router.put("/:pid", async (req, res) => {
 router.delete("/:pid", async (req, res) => {
     try {
         const id = req.params.pid;
-        if (!id) {
-            return res.status(400).send({
-                status: "error",
-                message: { error: "The Id does not exist" },
-            });
-        }
+        console.log(id)
 
-        if (isNaN(id) || id <= 0) {
-            return res.status(400).send({
-                status: "error",
-                message: { error: `The id has not a valid value` },
-            });
-        }
-
-        let result = await manager.deleteProducts(Number.parseInt(id));
-        if (result === -1) {
+        let result = await manager.deleteProducts(id);
+        if (typeof (result) === "string") {
             return res.status(404).send({
                 status: "error",
-                message: { error: `The product with this Id does not exist in the list` },
+                message: { error: result },
             });
         }
+
         return res.status(200).send({
             status: "success",
             message: {
